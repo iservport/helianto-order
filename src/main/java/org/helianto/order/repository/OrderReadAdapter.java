@@ -716,10 +716,6 @@ public class OrderReadAdapter
 		adaptee.setResolution(resolution);
 	}
 
-	public void setResolution(String resolution) {
-		adaptee.setResolution(resolution);
-	}
-
 	public void setResolutionAsEnum(ResolutionExtended resolution) {
 		adaptee.setResolutionAsEnum(resolution);
 	}
