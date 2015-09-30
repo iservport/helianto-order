@@ -400,6 +400,24 @@ public class AbstractOrder
          int result = 17;
          result = 37 * result + (int) this.getInternalNumber();
          return result;
-   }
+    }
+   
+    /**
+     * Merger.
+     * 
+     * @param command
+     */
+    public AbstractOrder merge(AbstractOrder command) {
+		setIssueDate(command.getIssueDate());
+		setResolution(command.getResolution());
+		setNextCheckDate(command.getNextCheckDate());
+		setCheckOutTime(command.getCheckOutTime());
+		setCheckInData(command.getCheckInData());
+		setCheckOutData(command.getCheckOutData());
+		setRemarks(command.getRemarks());
+		setFaceValue(command.getFaceValue());
+		setPosition(command.getPosition());
+    	return this;
+    }
 
 }

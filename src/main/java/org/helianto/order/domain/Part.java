@@ -25,6 +25,8 @@ import org.helianto.document.Documentable;
 import org.helianto.document.internal.AbstractDocument;
 import org.helianto.user.domain.User;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * A part.
@@ -75,6 +77,7 @@ public class Part
     
 	private char activityState = 'T';
 	
+	@JsonIgnore
     @ManyToOne
     @JoinColumn(name="currencyId", nullable=true)
     private Currency currency;
@@ -417,4 +420,22 @@ public class Part
 		return false;
 	}
 
+    /**
+     * Merger.
+     * 
+     * @param command
+     */
+    public Part merge(Part command) {
+		setIssueDate(command.getIssueDate());
+		setDocCode(command.getDocCode());
+		setDocName(command.getDocName());
+		setDocFile(command.getDocFile());
+		setDocAbstract(command.getDocAbstract());
+		setActivityState(command.getActivityState());
+		setDocFlag(command.isDocFlag());
+		setDocValue(command.getDocValue());
+		setTokenPrefix(command.getTokenPrefix());
+    	return this;
+    }
+    
 }
