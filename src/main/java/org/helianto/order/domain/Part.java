@@ -426,11 +426,7 @@ public class Part
      * @param command
      */
     public Part merge(Part command) {
-		setIssueDate(command.getIssueDate());
-		setDocCode(command.getDocCode());
-		setDocName(command.getDocName());
-		setDocFile(command.getDocFile());
-		setDocAbstract(command.getDocAbstract());
+    	super.merge(command);
 		setActivityState(command.getActivityState());
 		setDocFlag(command.isDocFlag());
 		setDocValue(command.getDocValue());
