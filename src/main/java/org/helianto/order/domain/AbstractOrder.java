@@ -408,8 +408,7 @@ public class AbstractOrder
      * @param command
      */
     public AbstractOrder merge(AbstractOrder command) {
-		setIssueDate(command.getIssueDate());
-		setResolution(command.getResolution());
+    	super.merge(command);
 		setNextCheckDate(command.getNextCheckDate());
 		setCheckOutTime(command.getCheckOutTime());
 		setCheckInData(command.getCheckInData());
@@ -419,5 +418,4 @@ public class AbstractOrder
 		setPosition(command.getPosition());
     	return this;
     }
-
 }

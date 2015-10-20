@@ -91,7 +91,7 @@ public class OrderEvent
 		setTokenCode(tokenCode);
 		setIssueDate(issueDate);
 	}
-
+	
 	public int getId() {
 		return id;
 	}
@@ -139,6 +139,18 @@ public class OrderEvent
 	}
 	public void setIssueDate(Date issueDate) {
 		this.issueDate = issueDate;
+	}
+
+	/**
+	 * Merger.
+	 * 
+	 * @param command
+	 */
+	public OrderEvent merge(OrderEvent command) {
+		setSequence(command.getSequence());
+		setTokenCode(command.getTokenCode());
+		setIssueDate(command.getIssueDate());
+		return this;
 	}
 
 	@Override

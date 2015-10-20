@@ -71,7 +71,7 @@ public class Token
     	setEntity(entity);
     	setTokenLabel(tokenLabel);
      }
-
+    
     /**
      * Token label.
      */
@@ -99,6 +99,17 @@ public class Token
 	 */
 	public void setTokenStateAsEnum(TokenState tokenState) {
 		this.tokenState = tokenState.getValue();
+	}
+
+    /**
+	 * Merger.
+	 * 
+	 * @param command
+	 */
+	public Token merge(Token command) {
+		setTokenLabel(command.getTokenLabel());
+		setTokenState(command.getTokenState());
+		return this;
 	}
 
     /**

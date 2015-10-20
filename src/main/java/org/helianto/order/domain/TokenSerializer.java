@@ -84,7 +84,7 @@ public class TokenSerializer
 		setTokenPrefix(tokenPrefix);
 	}
     
-    /**
+    /*
      * Primary key.
      */
     public int getId() {
@@ -173,6 +173,22 @@ public class TokenSerializer
 		this.tokenName = tokenName;
 	}
 
+    /**
+	 * Merger.
+	 * 
+	 * @param command
+	 */
+    public TokenSerializer merge(TokenSerializer command) {
+		setTokenPrefix(command.getTokenPrefix());
+		setLastToken(command.getLastToken());
+		setTokenType(command.getTokenType());
+		setTokenLogoUrl(command.getTokenLogoUrl());
+		setTokenColorUrl(command.getTokenColorUrl());
+		setTokenIconUrl(command.getTokenIconUrl());
+		setTokenName(command.getTokenName());
+		return this;
+	}
+    
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -431,7 +431,7 @@ public class Part
 		setDocFlag(command.isDocFlag());
 		setDocValue(command.getDocValue());
 		setTokenPrefix(command.getTokenPrefix());
+		setDocFlag(command.isDocFlag());
     	return this;
     }
-    
 }

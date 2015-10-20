@@ -711,7 +711,6 @@ public class OrderReadAdapter
 	public void setRemarks(String remarks) {
 		adaptee.setRemarks(remarks);
 	}
-
 	public void setResolution(Character resolution) {
 		adaptee.setResolution(resolution);
 	}

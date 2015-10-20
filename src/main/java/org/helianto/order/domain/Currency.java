@@ -78,7 +78,7 @@ public class Currency
 		this(context, currencyCode);
 		this.currencyName = currencyName;
 	}
-
+	
 	public int getId() {
 		return id;
 	}
@@ -107,6 +107,17 @@ public class Currency
 		this.currencyName = currencyName;
 	}
     
+	/**
+	 * Merger.
+	 * 
+	 * @param command
+	 */
+	public Currency merge(Currency command) {
+		setCurrencyCode(command.getCurrencyCode());
+		setCurrencyName(command.getCurrencyName());
+		return this;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
