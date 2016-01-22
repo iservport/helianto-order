@@ -18,11 +18,10 @@ import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 import org.helianto.core.def.ActivityState;
-import org.helianto.core.domain.Category;
 import org.helianto.core.domain.Entity;
 import org.helianto.core.internal.InterpretableCategory;
 import org.helianto.document.Documentable;
-import org.helianto.document.internal.AbstractDocument;
+import org.helianto.document.internal.AbstractCustomDocument;
 import org.helianto.user.domain.User;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -46,7 +45,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @DiscriminatorValue("A")
 
 public class Part
-	extends AbstractDocument
+	extends AbstractCustomDocument
 	implements 
 	  Documentable
 	, InterpretableCategory
@@ -56,13 +55,6 @@ public class Part
 
 	private static final long serialVersionUID = 1L;
 	
-    @ManyToOne
-    @JoinColumn(name="categoryId", nullable=true)
-    private Category category;
-    
-    @Transient
-    private Integer categoryId;
-    
     @Transient
 	private String categoryCode;
 
@@ -246,29 +238,6 @@ public class Part
 		setCategoryCode(categoryCode); 
 		setCategoryName(categoryName);
 		setTemplate(template);
-	}
-	
-	/**
-	 * Categoria do produto ou serviço.
-	 */
-	public Category getCategory() {
-		return category;
-	}
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-	
-	/**
-	 * <<Transient>> category id.
-	 */
-	public Integer getCategoryId() {
-		if (getCategory()!=null) {
-			return getCategory().getId();
-		}
-		return categoryId;
-	}
-	public void setCategoryId(Integer categoryId) {
-		this.categoryId = categoryId;
 	}
 	
 	/**
