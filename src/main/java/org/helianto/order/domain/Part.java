@@ -108,6 +108,19 @@ public class Part
 	}
 	
 	/**
+	 * Catalog constructor.
+	 * 
+	 * @param entity
+	 * @param catalog
+	 * @param docCode
+	 */
+	public Part(Entity entity, Catalog catalog, String docCode) {
+		this(entity, docCode);
+		setFolder(catalog);
+		setCategory(catalog.getCategory());
+	}
+	
+	/**
 	 * Form constructor.
 	 * 
 	 * @param user
