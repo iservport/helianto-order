@@ -40,6 +40,7 @@ public class Catalog extends DocumentFolder {
 		this();
 		setEntityId(entityId);
 		setCategoryId(categoryId);
+		setContentType('T');
 	}
 	
 	/**
