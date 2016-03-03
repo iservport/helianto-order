@@ -100,6 +100,10 @@ public class Part
 	public String getDiscriminator() {
 		return "A";
 	}
+	
+	@JsonIgnore
+    @Lob
+    private byte[] content = "".getBytes();
 
 	/**
 	 * Default constructor.
@@ -430,6 +434,26 @@ public class Part
 		this.tokenPrefix = tokenPrefix;
 	}
 	
+	@JsonIgnore
+	public byte[] getContent() {
+		return content;
+	}
+	
+	public void setContent(byte[] content) {
+		this.content = content;
+	}
+	
+	public String getContentAsString() {
+    	if (getContent()!=null) {
+    		return new String(getContent());
+    	}
+    	return "";
+    }
+    public void setContentAsString(String contentAsString) {
+		setContent(contentAsString.getBytes());
+	}
+    
+	
 	@Override
 	public int compareTo(Part other) {
 		if (getDocCode()!=null && other!=null) {
@@ -461,6 +485,8 @@ public class Part
 		setDocValue(command.getDocValue());
 		setTokenPrefix(command.getTokenPrefix());
 		setDocFlag(command.isDocFlag());
+		setChangeSummary(command.getChangeSummary());
+		setParsedContent(command.getParsedContent());
     	return this;
     }
 }
