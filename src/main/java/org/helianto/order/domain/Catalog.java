@@ -19,6 +19,7 @@ public class Catalog extends DocumentFolder {
 	
 	public Catalog() {
 		super();
+		setContentType('T');
 	}
 
 	public Catalog(Entity entity, String folderCode) {
@@ -40,7 +41,6 @@ public class Catalog extends DocumentFolder {
 		this();
 		setEntityId(entityId);
 		setCategoryId(categoryId);
-		setContentType('T');
 	}
 	
 	/**
