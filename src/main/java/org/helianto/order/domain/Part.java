@@ -12,6 +12,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -55,6 +56,18 @@ public class Part
 
 	private static final long serialVersionUID = 1L;
 	
+	@Column(length=6)
+    private String majorChange = "0";
+
+    @Column(precision=2)
+    private int minorNumber = -1;
+
+    @Column(length=6)
+    private String formattedVersion = "";
+
+    @Lob
+    private String changeSummary = "";
+
     @Transient
 	private String categoryCode;
 
@@ -253,6 +266,40 @@ public class Part
 		setTemplate(template);
 	}
 	
+    public String getMajorChange() {
+        return this.majorChange;
+    }
+    public void setMajorChange(String majorChange) {
+        this.majorChange = majorChange;
+    }
+
+    public int getMinorNumber() {
+        return this.minorNumber;
+    }
+    public void setMinorNumber(int minorNumber) {
+        this.minorNumber = minorNumber;
+    }
+
+    /**
+     * The formatted version.
+     */
+    public String getFormattedVersion() {
+        return formattedVersion;
+    }
+    public void setFormattedVersion(String formattedVersion) {
+        this.formattedVersion = formattedVersion;
+    }
+
+    /**
+     * Change summary.
+     */
+    public String getChangeSummary() {
+        return this.changeSummary;
+    }
+    public void setChangeSummary(String changeSummary) {
+        this.changeSummary = changeSummary;
+    }
+
 	/**
 	 * <<Transient>> category code.
 	 */
