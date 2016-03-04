@@ -486,6 +486,7 @@ public class Part
 		setTokenPrefix(command.getTokenPrefix());
 		setDocFlag(command.isDocFlag());
 		setChangeSummary(command.getChangeSummary());
+		setContentAsString(command.getContentAsString());
 		setParsedContent(command.getParsedContent());
     	return this;
     }
