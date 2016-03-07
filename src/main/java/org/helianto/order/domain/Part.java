@@ -429,6 +429,38 @@ public class Part
 		this.docValue = docValue;
 	}
 	
+	public BigDecimal getUnitValue() {
+		return unitValue;
+	}
+
+	public void setUnitValue(BigDecimal unitValue) {
+		this.unitValue = unitValue;
+	}
+
+	public Integer getMinLimit() {
+		return minLimit;
+	}
+
+	public void setMinLimit(Integer minLimit) {
+		this.minLimit = minLimit;
+	}
+
+	public Integer getMaxLimit() {
+		return maxLimit;
+	}
+
+	public void setMaxLimit(Integer maxLimit) {
+		this.maxLimit = maxLimit;
+	}
+
+	public String getStepBy() {
+		return stepBy;
+	}
+
+	public void setStepBy(String stepBy) {
+		this.stepBy = stepBy;
+	}
+
 	public Boolean isDocFlag() {
 		return docFlag;
 	}
@@ -497,6 +529,10 @@ public class Part
 		setChangeSummary(command.getChangeSummary());
 		setContentAsString(command.getContentAsString());
 		setParsedContent(command.getParsedContent());
+		setMaxLimit(command.getMaxLimit());
+		setMinLimit(command.getMinLimit());
+		setUnitValue(command.getUnitValue());
+		setStepBy(command.getStepBy());
     	return this;
     }
 }
