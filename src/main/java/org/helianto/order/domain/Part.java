@@ -92,6 +92,15 @@ public class Part
     
     private BigDecimal docValue;
     
+    private BigDecimal unitValue;
+    
+    private Integer minLimit;
+    
+    private Integer maxLimit;
+    
+    @Column(length=36)
+    private String stepBy;
+    
     private Boolean docFlag;
     
     @Column(length=4)
