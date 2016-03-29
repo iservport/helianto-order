@@ -18,58 +18,58 @@ public class PartAssessmentAdapter
 			+ "org.helianto.order.repository.PartAssessmentAdapter"
 			+ "( a_.id" 
 			+ ", a_.part.id" 
-			+ ", a_.identity.principal" 
-			+ ", a_.identity.personalData.firstName " 
-			+ ", a_.identity.personalData.lastName " 
-			+ ", a_.identity.personalData.gender " 
+			+ ", a_.owner.principal" 
+			+ ", a_.owner.personalData.firstName " 
+			+ ", a_.owner.personalData.lastName " 
+			+ ", a_.owner.personalData.gender " 
 			+ ", a_.issueDate" 
 			+ ", a_.content" 
-			+ ", a_.assessmentGrade" 
+			+ ", a_.assessmentValue" 
 			+ ") "
 			+ "from PartAssessment a_ ";
 	
 	private int id;
 	private int partId; 
-	private String identityPrincipal;
-	private String identityFirstName;
-	private String identityLastName;
-	private Character identityGender;
+	private String ownerPrincipal;
+	private String ownerFirstName;
+	private String ownerLastName;
+	private Character ownerGender;
 	private Date issueDate; 
 	private byte[] content;
-	private int assessmentGrade;
+	private int assessmentValue;
 	
 	/**
 	 * Read constructor.
 	 * 
 	 * @param id
 	 * @param partId
-	 * @param identityPrincipal
-	 * @param identityFirstName
-	 * @param identityLastName
-	 * @param identityGender
+	 * @param ownerPrincipal
+	 * @param ownerFirstName
+	 * @param ownerLastName
+	 * @param ownerGender
 	 * @param issueDate
 	 * @param content
-	 * @param assessmentGrade
+	 * @param assessmentValue
 	 */
 	public PartAssessmentAdapter(int id
 			, int partId
-			, String identityPrincipal
-			, String identityFirstName
-			, String identityLastName
-			, Character identityGender
+			, String ownerPrincipal
+			, String ownerFirstName
+			, String ownerLastName
+			, Character ownerGender
 			, Date issueDate
 			, byte[] content
-			, int assessmentGrade) {
+			, int assessmentValue) {
 		super();
 		this.id = id;
 		this.partId = partId;
-		this.identityPrincipal = identityPrincipal;
-		this.identityFirstName = identityFirstName;
-		this.identityLastName = identityLastName;
-		this.identityGender = identityGender;
+		this.ownerPrincipal = ownerPrincipal;
+		this.ownerFirstName = ownerFirstName;
+		this.ownerLastName = ownerLastName;
+		this.ownerGender = ownerGender;
 		this.issueDate = issueDate;
 		this.content = content;
-		this.assessmentGrade = assessmentGrade;
+		this.assessmentValue = assessmentValue;
 	}
 	
 	public int getId() {
@@ -80,20 +80,20 @@ public class PartAssessmentAdapter
 		return partId;
 	}
 
-	public String getIdentityPrincipal() {
-		return identityPrincipal;
+	public String getOwnerPrincipal() {
+		return ownerPrincipal;
 	}
 
-	public String getIdentityFirstName() {
-		return identityFirstName;
+	public String getOwnerFirstName() {
+		return ownerFirstName;
 	}
 
-	public String getIdentityLastName() {
-		return identityLastName;
+	public String getOwnerLastName() {
+		return ownerLastName;
 	}
 
-	public Character getIdentityGender() {
-		return identityGender;
+	public Character getOwnerGender() {
+		return ownerGender;
 	}
 
 	public Date getIssueDate() {
@@ -111,7 +111,8 @@ public class PartAssessmentAdapter
 		return "";
 	}
 	
-	public int getAssessmentGrade() {
-		return assessmentGrade;
+	public int getAssessmentValue() {
+		return assessmentValue;
 	}
+	
 }
