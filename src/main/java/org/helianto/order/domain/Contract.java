@@ -2,17 +2,19 @@ package org.helianto.order.domain;
 
 import java.util.Date;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 import org.helianto.core.domain.Entity;
+import org.helianto.core.domain.PublicEntity;
 import org.helianto.document.domain.ProcessDocument;
-import org.helianto.partner.domain.PrivateEntity;
+import org.helianto.document.internal.AbstractVersionableContent;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * Contract.
@@ -21,20 +23,21 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
  */
 
 @javax.persistence.Entity
-@DiscriminatorValue("C")
-
+@Table(name = "ord_contract", 
+	uniqueConstraints = { @UniqueConstraint(columnNames = {"entityId", "docCode"})}
+)
 public class Contract 
-	extends Part 
+	extends AbstractVersionableContent 
 {
 
 	private static final long serialVersionUID = 1L;
 	
-	@JsonBackReference 
+	@JsonIgnore 
 	@ManyToOne
 	@JoinColumn(name="privateEntityId")
-	private PrivateEntity privateEntity;
+	private PublicEntity publicEntity;
 	
-	@JsonBackReference 
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="processDocumentId")
 	private ProcessDocument processDocument;
@@ -73,11 +76,11 @@ public class Contract
 		setDocCode(docCode);
 	}
 	
-	public PrivateEntity getPrivateEntity() {
-		return privateEntity;
+	public PublicEntity getPublicEntity() {
+		return publicEntity;
 	}
-	public void setPrivateEntity(PrivateEntity privateEntity) {
-		this.privateEntity = privateEntity;
+	public void setPublicEntity(PublicEntity publicEntity) {
+		this.publicEntity = publicEntity;
 	}
 	
 	/**
