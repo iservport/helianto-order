@@ -66,10 +66,13 @@ public class PartHint
 	@Version
     private int version;
     
-	@JsonBackReference 
+	@JsonIgnore 
 	@ManyToOne
 	@JoinColumn(name="partId", nullable=true)
 	private Part part;
+	
+	@Transient
+	private Integer partId;
 	
 	@Column(length=36)
     private String hintCode = "";
@@ -82,9 +85,6 @@ public class PartHint
     
     private char hintType = 'H';
 
-	@Transient
-	private Integer partId;
-	
 	/**
 	 * Default constructor.
 	 */
